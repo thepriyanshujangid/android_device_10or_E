@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/10or/G
+DEVICE_PATH := device/10or/E
 
 # Architecture
 TARGET_ARCH := arm64
@@ -24,14 +24,14 @@ BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # Kernel
 BOARD_KERNEL_BASE := 0x80000000
-BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci earlycon=msm_hsl_uart,0x78af000
+BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci earlycon=msm_hsl_uart,0x78af000 firmware_class.path=/vendor/firmware_mnt/image
 BOARD_KERNEL_CMDLINE += androidboot.usbconfigfs=true
 BOARD_KERNEL_CMDLINE += androidboot.android_dt_dir=/non-existent androidboot.boot_devices=soc/7824900.sdhci
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE :=  2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
-TARGET_KERNEL_CONFIG := lineageos_holland2_defconfig
-TARGET_KERNEL_SOURCE := kernel/10or/G
+TARGET_KERNEL_CONFIG := holland1_defconfig
+TARGET_KERNEL_SOURCE := kernel/10or/E
 TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_VERSION := 4.9
 
@@ -46,7 +46,7 @@ BOARD_SUPPORTS_SOUND_TRIGGER := true
 BOARD_USES_ALSA_AUDIO := true
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := MSM8953
+TARGET_BOOTLOADER_BOARD_NAME := MSM8937
 TARGET_NO_BOOTLOADER := true
 
 # Camera
@@ -77,8 +77,8 @@ DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
 
 # Init
-TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_G
-TARGET_RECOVERY_DEVICE_MODULES := libinit_G
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_E
+TARGET_RECOVERY_DEVICE_MODULES := libinit_E
 
 # Partitions
 BOARD_USES_METADATA_PARTITION := true
@@ -96,9 +96,9 @@ BOARD_SUPER_PARTITION_OEM_DEVICE_SIZE := 268435456
 BOARD_SUPER_PARTITION_SYSTEM_DEVICE_SIZE := 4508876800
 BOARD_SUPER_PARTITION_SIZE := $(shell expr $(BOARD_SUPER_PARTITION_OEM_DEVICE_SIZE) + $(BOARD_SUPER_PARTITION_SYSTEM_DEVICE_SIZE) )
 
-BOARD_SUPER_PARTITION_GROUPS := 10or_g_dynpart
-BOARD_10OR_G_DYNPART_SIZE := $(shell expr $(BOARD_SUPER_PARTITION_SIZE) - 4194304 )
-BOARD_10OR_G_DYNPART_PARTITION_LIST := odm product system system_ext vendor
+BOARD_SUPER_PARTITION_GROUPS := 10or_e_dynpart
+BOARD_10OR_E_DYNPART_SIZE := $(shell expr $(BOARD_SUPER_PARTITION_SIZE) - 4194304 )
+BOARD_10OR_E_DYNPART_PARTITION_LIST := odm product system system_ext vendor
 
 BOARD_ROOT_EXTRA_SYMLINKS := \
     /vendor/dsp:/dsp \
@@ -133,7 +133,7 @@ TARGET_USES_INTERACTION_BOOST := true
 
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
-TARGET_BOARD_PLATFORM := msm8953
+TARGET_BOARD_PLATFORM := msm8937
 TARGET_ENFORCES_QSSI := true
 TARGET_USES_UM_4_9 := true
 
@@ -180,4 +180,4 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit from the proprietary version
-include vendor/10or/G/BoardConfigVendor.mk
+include vendor/10or/E/BoardConfigVendor.mk

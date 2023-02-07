@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_G.mk
+    $(LOCAL_DIR)/aosp_E.mk
 
 COMMON_LUNCH_CHOICES := \
-    aosp_G-user \
-    aosp_G-userdebug \
-    aosp_G-eng
+    aosp_E-user \
+    aosp_E-userdebug \
+    aosp_E-eng
