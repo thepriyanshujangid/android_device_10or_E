@@ -1,4 +1,3 @@
-#
 # Copyright (C) 2017-2023 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
@@ -35,6 +34,8 @@ TARGET_KERNEL_SOURCE := kernel/10or/E
 TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_VERSION := 4.9
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+TARGET_KERNEL_CLANG_VERSION := proton
+TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/clang-proton
 
 # ANT
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
