@@ -16,7 +16,7 @@ $(call inherit-product, device/10or/E/device.mk)
 $(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 
 # Boot Animation
-TARGET_BOOT_ANIMATION_RES := 1080
+TARGET_BOOT_ANIMATION_RES := 720
 
 # Device identifier. This must come after all inclusions.
 PRODUCT_BRAND := 10.or
