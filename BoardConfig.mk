@@ -34,6 +34,7 @@ TARGET_KERNEL_CONFIG := holland1_defconfig
 TARGET_KERNEL_SOURCE := kernel/10or/E
 TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_VERSION := 4.9
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
 # ANT
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
